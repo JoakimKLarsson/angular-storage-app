@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [AppComponent, FileUploadComponent],
@@ -16,6 +17,7 @@ import { NgxFileDropModule } from 'ngx-file-drop';
     BrowserAnimationsModule,
     MaterialModule,
     NgxFileDropModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   animate,
   state,
@@ -12,6 +12,7 @@ import {
   FileSystemDirectoryEntry,
 } from 'ngx-file-drop';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'file-upload',
@@ -32,10 +33,17 @@ export class FileUploadComponent implements OnInit {
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   columnsToDisplay = ['name', 'weight', 'symbol', 'position'];
   expandedElement: PeriodicElement | undefined;
+  @ViewChild(MatSort) sort: MatSort | null;
 
-  constructor() {}
+  constructor() {
+    this.sort = null;
+  }
 
   ngOnInit(): void {}
+
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+  }
 
   public files: NgxFileDropEntry[] = [];
 
@@ -82,6 +90,9 @@ export class FileUploadComponent implements OnInit {
       }
     }
   }
+  uploadFile($event: any) {
+    console.log($event.target.files[0]); // outputs the first file
+  }
 
   public fileOver(event: any) {
     console.log(event);
@@ -95,6 +106,31 @@ export class FileUploadComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  folders: Section[] = [
+    {
+      name: 'Photos',
+      updated: new Date('1/1/16'),
+    },
+    {
+      name: 'Recipes',
+      updated: new Date('1/17/16'),
+    },
+    {
+      name: 'Work',
+      updated: new Date('1/28/16'),
+    },
+  ];
+  notes: Section[] = [
+    {
+      name: 'Vacation Itinerary',
+      updated: new Date('2/20/16'),
+    },
+    {
+      name: 'Kitchen Remodel',
+      updated: new Date('1/18/16'),
+    },
+  ];
 }
 
 export interface PeriodicElement {
@@ -103,6 +139,11 @@ export interface PeriodicElement {
   weight: number;
   symbol: string;
   description: string;
+}
+
+export interface Section {
+  name: string;
+  updated: Date;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [

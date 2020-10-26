@@ -1,14 +1,16 @@
-<mat-toolbar color="primary">
-  <span>My Application</span>
-</mat-toolbar>
+<div>
+  <mat-toolbar color="primary">
+    <span>My Application</span>
+  </mat-toolbar>
 
-<mat-card>
-  <mat-selection-list>
-    <mat-list-option *ngFor="let item of items">
-      {{ item }}
-      <mat-divider></mat-divider>
-    </mat-list-option>
-  </mat-selection-list>
-</mat-card>
+  <mat-card>
+    <mat-selection-list>
+      <mat-list-option *ngFor="let item of items">
+        {{ item }}
+        <mat-divider></mat-divider>
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-card>
 
-<file-upload></file-upload>
+  <file-upload></file-upload>
+</div>
