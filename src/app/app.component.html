@@ -1,16 +1,17 @@
-<div>
-  <mat-toolbar color="primary">
-    <span>My Application</span>
-  </mat-toolbar>
+<mat-toolbar color="primary">
+  <span routerLink="/overview" routerLinkActive="active">My Application</span>
+  <span class="spacer"></span>
+  <a
+    mat-icon-button
+    aria-label="User"
+    routerLink="/user"
+    routerLinkActive="active"
+  >
+    <mat-icon>perm_identity</mat-icon>
+  </a>
+  <a mat-icon-button>
+    <mat-icon>exit_to_app</mat-icon>
+  </a>
+</mat-toolbar>
 
-  <mat-card>
-    <mat-selection-list>
-      <mat-list-option *ngFor="let item of items">
-        {{ item }}
-        <mat-divider></mat-divider>
-      </mat-list-option>
-    </mat-selection-list>
-  </mat-card>
-
-  <file-upload></file-upload>
-</div>
+<router-outlet></router-outlet>
