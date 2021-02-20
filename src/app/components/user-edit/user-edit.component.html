@@ -2,34 +2,11 @@
   <form class="half-form">
     <mat-form-field class="full-width">
       <mat-label>Username</mat-label>
-      <input
-        type="text"
-        matInput
-        [formControl]="userNameFormControl"
-        placeholder="Ex. CoolKid123"
-      />
+      <input type="text" matInput [formControl]="userNameFormControl" />
       <mat-error *ngIf="userNameFormControl.hasError('required')">
         Username is <strong>required</strong>
       </mat-error>
     </mat-form-field>
-    <mat-form-field class="full-width">
-      <mat-label>Current Password</mat-label>
-      <input
-        type="password"
-        matInput
-        [formControl]="userPasswordOldFormControl"
-      />
-      <mat-error *ngIf="userPasswordOldFormControl.hasError('required')">
-        Password is <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field class="full-width">
-      <mat-label>New Password</mat-label>
-      <input
-        type="password"
-        matInput
-        [formControl]="userPasswordNewFormControl"
-      />
-    </mat-form-field>
+    <button mat-raised-button color="primary">Submit</button>
   </form>
 </mat-card>

@@ -24,12 +24,13 @@
     "@angular/router": "~10.1.6",
     "@ngrx/store": "^11.0.0",
     "ngx-file-drop": "^10.0.0",
-    "rxjs": "~6.6.0",
+    "redux-devtools-extension": "^2.13.8",
+    "rxjs": "^6.6.3",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1001.7",
+    "@angular-devkit/build-angular": "^0.1102.1",
     "@angular/cli": "~10.1.7",
     "@angular/compiler-cli": "~10.1.6",
     "@types/jasmine": "~3.5.0",
