@@ -1,12 +1,26 @@
-<mat-card>
-  <form class="half-form">
-    <mat-form-field class="full-width">
-      <mat-label>Username</mat-label>
-      <input type="text" matInput [formControl]="userNameFormControl" />
-      <mat-error *ngIf="userNameFormControl.hasError('required')">
-        Username is <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
-    <button mat-raised-button color="primary">Submit</button>
-  </form>
-</mat-card>
+<mat-grid-list cols="2">
+  <mat-grid-tile
+    ><mat-card class="fill">
+      <form class="half-form" [formGroup]="form">
+        <mat-form-field class="full-width">
+          <mat-label>Username</mat-label>
+          <input type="text" matInput formControlName="userNameFormControl" />
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="submit()">
+          Submit
+        </button>
+      </form>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile
+    ><mat-card class="fill"
+      ><mat-list>
+        <div mat-subheader>Your user</div>
+        <mat-list-item
+          ><mat-icon mat-list-icon>perm_identity</mat-icon>
+          {{ username$ | async }}</mat-list-item
+        >
+      </mat-list></mat-card
+    ></mat-grid-tile
+  >
+</mat-grid-list>

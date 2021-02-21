@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { OverviewComponent } from './overview/overview.component';
@@ -13,7 +13,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [UserEditComponent, OverviewComponent, FileUploadComponent, LoginComponent],
+  declarations: [
+    UserEditComponent,
+    OverviewComponent,
+    FileUploadComponent,
+    LoginComponent,
+  ],
   imports: [
     CommonModule,
     BrowserModule,
@@ -25,5 +30,6 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     ReactiveFormsModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentsModule {}

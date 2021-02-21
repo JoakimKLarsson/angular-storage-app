@@ -9,10 +9,12 @@ const routes: Routes = [
   { path: 'overview', component: OverviewComponent, canActivate: [LoginGuard] },
   { path: 'user', component: UserEditComponent, canActivate: [LoginGuard] },
   { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  providers: [LoginGuard],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

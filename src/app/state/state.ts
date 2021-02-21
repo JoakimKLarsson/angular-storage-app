@@ -1,11 +1,5 @@
 import { User } from './types';
 
 export interface AppState {
-  user: User;
+  user: User | undefined;
 }
-
-export const initialMainState = {
-  user: {
-    username: 'test123',
-  },
-};
