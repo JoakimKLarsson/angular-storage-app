@@ -33,7 +33,17 @@ import { DomSanitizer } from '@angular/platform-browser';
   ],
 })
 export class FileUploadComponent implements OnInit {
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  mockData: AppFile[] = [
+    {
+      name: 'Christian.jpg',
+      size: 1.0079,
+      type: 'dummy',
+      lastModifiedDate: 20210101,
+      url:
+        'https://media.cdn.teamtailor.com/images/s3/teamtailor-production/user_picture_1200_crop-v4/image_uploads/c97db6a2-dcac-4e41-92c7-2e6c4a68cb82/original.jpg',
+    },
+  ];
+  dataSource = new MatTableDataSource(this.mockData);
   columnsToDisplay = [
     'select',
     'name',
@@ -42,9 +52,10 @@ export class FileUploadComponent implements OnInit {
     'type',
     'more',
   ];
-  expandedElement: AppFile | undefined;
   selection = new SelectionModel<AppFile>(true, []);
   @ViewChild(MatSort) sort: MatSort | null;
+
+  files: NgxFileDropEntry[] = [];
 
   constructor(private sanitizer: DomSanitizer) {
     this.sort = null;
@@ -56,9 +67,7 @@ export class FileUploadComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  public files: NgxFileDropEntry[] = [];
-
-  public dropped(files: NgxFileDropEntry[]) {
+  dropped(files: NgxFileDropEntry[]) {
     this.files = files;
     for (const droppedFile of files) {
       // Is it a file?
@@ -88,11 +97,11 @@ export class FileUploadComponent implements OnInit {
     }
   }
 
-  public fileOver(event: any) {
+  fileOver(event: any) {
     console.log(event);
   }
 
-  public fileLeave(event: any) {
+  fileLeave(event: any) {
     console.log(event);
   }
 
@@ -125,14 +134,3 @@ export class FileUploadComponent implements OnInit {
     }`;
   }
 }
-
-const ELEMENT_DATA: AppFile[] = [
-  {
-    name: 'Christian.jpg',
-    size: 1.0079,
-    type: 'dummy',
-    lastModifiedDate: 20210101,
-    url:
-      'https://media.cdn.teamtailor.com/images/s3/teamtailor-production/user_picture_1200_crop-v4/image_uploads/c97db6a2-dcac-4e41-92c7-2e6c4a68cb82/original.jpg',
-  },
-];
