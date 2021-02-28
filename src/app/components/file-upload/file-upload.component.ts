@@ -13,7 +13,7 @@ import {
 } from 'ngx-file-drop';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import { AppFile, Section } from 'src/app/shared';
+import { AppFile, AppFolder } from 'src/app/shared';
 import { SelectionModel } from '@angular/cdk/collections';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -80,31 +80,12 @@ export class FileUploadComponent implements OnInit {
           const data = this.dataSource.data;
           data.push(myFileAsElement);
           this.dataSource.data = data;
-
-          /**
-          // You could upload it like this:
-          const formData = new FormData()
-          formData.append('logo', file, relativePath)
-
-          // Headers
-          const headers = new HttpHeaders({
-            'security-token': 'mytoken'
-          })
-
-          this.http.post('https://mybackend.com/api/upload/sanitize-and-save-logo', formData, { headers: headers, responseType: 'blob' })
-          .subscribe(data => {
-            // Sanitized logo returned from backend
-          })
-          **/
         });
       } else {
         // It was a directory (empty directories are added, otherwise only files)
         const fileEntry = droppedFile.fileEntry as FileSystemDirectoryEntry;
       }
     }
-  }
-  uploadFile($event: any) {
-    console.log($event.target.files[0]); // outputs the first file
   }
 
   public fileOver(event: any) {
@@ -143,21 +124,6 @@ export class FileUploadComponent implements OnInit {
       row.name + 1
     }`;
   }
-
-  folders: Section[] = [
-    {
-      name: 'Photos',
-      updated: new Date('1/1/16'),
-    },
-    {
-      name: 'Recipes',
-      updated: new Date('1/17/16'),
-    },
-    {
-      name: 'Work',
-      updated: new Date('1/28/16'),
-    },
-  ];
 }
 
 const ELEMENT_DATA: AppFile[] = [

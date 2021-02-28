@@ -12,7 +12,8 @@ export interface AppFile {
   url: SafeResourceUrl;
 }
 
-export interface Section {
+export interface AppFolder {
   name: string;
   updated: Date;
+  files: AppFile[];
 }

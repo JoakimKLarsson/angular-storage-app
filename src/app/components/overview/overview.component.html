@@ -7,6 +7,34 @@
       </mat-list-option>
     </mat-selection-list>
   </mat-card>
+  <div fxFlexFill>
+    <div fxLayout="row" style="padding: 10px 10px" fxLayoutGap="10px">
+      <div fxFlex="30">
+        <mat-card>
+          <mat-list>
+            <div mat-subheader>Actions</div>
+            <input hidden type="file" #uploadInput />
+            <mat-list-item onclick="uploadInput.click()">
+              <mat-icon mat-list-icon>cloud_upload</mat-icon>Upload files
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon mat-list-icon>create_new_folder</mat-icon>New folder
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon mat-list-icon>note_add</mat-icon>New file
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <div mat-subheader>Folders</div>
+            <mat-list-item *ngFor="let folder of folders">
+              <mat-icon mat-list-icon>folder</mat-icon>
+              <div mat-line>{{ folder.name }}</div>
+              <div mat-line>{{ folder.updated | date }}</div>
+            </mat-list-item>
+          </mat-list>
+        </mat-card>
+      </div>
 
-  <file-upload></file-upload>
+      <file-upload fxFlex="70"></file-upload>
+    </div>
+  </div>
 </div>
