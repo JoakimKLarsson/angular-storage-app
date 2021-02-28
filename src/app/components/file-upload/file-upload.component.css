@@ -45,3 +45,12 @@ tr.example-element-row:not(.example-expanded-row):active {
 .example-element-description-attribution {
   opacity: 0.5;
 }
+
+td.mat-column-more {
+  width: 20px;
+  padding-right: 8px;
+}
+
+td.mat-cell:last-of-type {
+  padding: 0px;
+}

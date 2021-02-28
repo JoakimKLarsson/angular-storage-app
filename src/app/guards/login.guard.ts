@@ -7,7 +7,8 @@ import {
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AppState, selectUser, User } from '../state';
+import { User } from '../shared';
+import { AppState, selectUser } from '../state';
 
 @Injectable({
   providedIn: 'root',

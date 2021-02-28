@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AppState, logoutUser, selectUser, User } from './state';
+import { User } from './shared';
+import { AppState, logoutUser, selectUser } from './state';
 
 @Component({
   selector: 'app-root',

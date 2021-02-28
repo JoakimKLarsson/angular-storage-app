@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { loginUser, logoutUser, changeUsername } from '../actions';
-import { User } from '../types';
+import { User } from '../../shared/types';
 
 export const initialState: User | {} = {};
 

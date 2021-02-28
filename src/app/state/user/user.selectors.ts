@@ -1,5 +1,5 @@
 import { createSelector, select } from '@ngrx/store';
-import { User } from '../types';
+import { User } from '../../shared/types';
 import { AppState } from '../state';
 
 export const selectUser = (state: AppState) => state.user;

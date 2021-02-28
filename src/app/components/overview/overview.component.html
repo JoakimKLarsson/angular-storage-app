@@ -1,8 +1,8 @@
 <div>
   <mat-card>
     <mat-selection-list>
-      <mat-list-option *ngFor="let item of items">
-        {{ item }}
+      <mat-list-option *ngFor="let item of items" [selected]="item.checked">
+        {{ item.text }}
         <mat-divider></mat-divider>
       </mat-list-option>
     </mat-selection-list>
