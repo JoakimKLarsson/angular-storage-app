@@ -23,14 +23,14 @@ export class UserEditComponent implements OnInit {
   ngOnInit(): void {
     this.username$ = this.store.select(selectUsername).pipe(
       map((username: string | undefined) => {
-        this.form.get('userNameFormControl')?.setValue(username);
+        this.form.controls.userNameFormControl.setValue(username);
         return username || '';
       })
     );
   }
 
   submit(): void {
-    const username = this.form.get('userNameFormControl')?.value || '';
+    const username = this.form.controls.userNameFormControl.value;
     this.store.dispatch(changeUsername({ username }));
   }
 }

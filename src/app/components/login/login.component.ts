@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   submit(): void {
-    const username = this.form.get('userNameFormControl')?.value || '';
+    const username = this.form.controls.userNameFormControl.value;
     const user = { username };
     this.store.dispatch(loginUser({ user }));
     this.router.navigate(['overview']);

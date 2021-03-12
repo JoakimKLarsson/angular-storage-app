@@ -16,10 +16,7 @@ import { AppState, selectUser } from '../state';
 export class LoginGuard implements CanActivate {
   constructor(private store: Store<AppState>) {}
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean> {
+  canActivate(): Observable<boolean> {
     return this.store.pipe(
       select(selectUser),
       map((user: User | undefined) => {

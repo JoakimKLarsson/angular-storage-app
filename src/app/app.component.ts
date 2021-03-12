@@ -14,7 +14,7 @@ import { AppState, logoutUser, selectUser } from './state';
 export class AppComponent implements OnInit {
   isLoggedIn$: Observable<boolean> | undefined;
 
-  constructor(private store: Store<AppState>, public router: Router) {}
+  constructor(private store: Store<AppState>, private router: Router) {}
 
   ngOnInit(): void {
     this.isLoggedIn$ = this.store
